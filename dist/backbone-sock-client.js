@@ -6,7 +6,7 @@ var Backbone, Fun, WebSock, _, global, ref,
 
 global = typeof exports !== "undefined" && exports !== null ? exports : this;
 
-_ = (typeof exports !== 'undefined' ? require('underscore') : global)._;
+_ = (typeof exports !== 'undefined' ? require('lodash') : global)._;
 
 Backbone = typeof exports !== 'undefined' ? require('backbone') : global.Backbone;
 

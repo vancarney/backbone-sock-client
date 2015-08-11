@@ -1,7 +1,7 @@
 # Another Cakefile made with love by ezcake v0.7
 # require Node::FS
 fs    = require 'fs.extra'
-_     = (require 'underscore')._
+_     = (require 'lodash')._
 
 # require Node::Util
 {debug, error, log, print} = require 'util'
