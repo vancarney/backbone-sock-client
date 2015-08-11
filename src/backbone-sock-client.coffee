@@ -163,7 +163,10 @@ class WebSock.StreamCollection extends Backbone.Collection
   initialize:->
     _client = arguments[0] if arguments[0] instanceof WebSock.Client
 if module?.exports?.WebSock?
-  module.exports.init = (io, listeners=[])->
+  module.exports.init = (app, listeners=[])->
+    io            = require('socket.io') app 
+    redis         = require 'socket.io-redis'
+    io.adapter redis {host: 'localhost', port: 6379}
     io.sockets.on 'connect', (client)=>
       client.on 'ws:datagram', (data)->
         data.header.srvTime   = Date.now()

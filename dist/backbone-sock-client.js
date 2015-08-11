@@ -405,10 +405,17 @@ WebSock.StreamCollection = (function(superClass) {
 })(Backbone.Collection);
 
 if ((typeof module !== "undefined" && module !== null ? (ref = module.exports) != null ? ref.WebSock : void 0 : void 0) != null) {
-  module.exports.init = function(io, listeners) {
+  module.exports.init = function(app, listeners) {
+    var io, redis;
     if (listeners == null) {
       listeners = [];
     }
+    io = require('socket.io')(app);
+    redis = require('socket.io-redis');
+    io.adapter(redis({
+      host: 'localhost',
+      port: 6379
+    }));
     return io.sockets.on('connect', (function(_this) {
       return function(client) {
         var l, listener;
