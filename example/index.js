@@ -7,7 +7,7 @@ host = process.env.HOST || '0.0.0.0',
 port = process.env.PORT || 3000,
 server = require('http').createServer(app),
 websock = require('../dist/backbone-sock-client');
-websock.init( require('socket.io').listen( server ) );
+websock.init( io = require('socket.io').listen( server ) );
 
 server.listen(port);
 

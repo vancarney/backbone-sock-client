@@ -192,7 +192,7 @@ if module?.exports?.WebSock?
           data.body.status = 'success'
           client.emit 'ws:datagram', data
           return
-        console.log data
+        # console.log data
         (if typeof data.header.room_id is 'undefined' or data.header.room_id is null then io.sockets else io.in data.header.room_id).emit 'ws:datagram', data
       for listener of listeners
         client.removeListener listener, l if (l = client._events[listener])? and typeof l is 'function'
